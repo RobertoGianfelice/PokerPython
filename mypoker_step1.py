@@ -1,3 +1,4 @@
+# Struttura di base dell'esercizio
 from random import randint
 
 Carte=["AC","2C","3C","4C","5C","6C","7C","8C","9C","dC","JC","QC","RC",
