@@ -28,7 +28,7 @@ def estraiSemi(mano):
         semi.append(carta[1])
     return (semi)
 
-def cercaPokerCoppieTris(valori):
+def cercaPokerCoppieTrisFull(valori):
     coppia=False
     tris=False
     for i in valori:
@@ -46,7 +46,7 @@ def cercaPokerCoppieTris(valori):
             for j in range(2):
                 valori.remove(i)
             coppia=True
-            
+
     if ( coppia and tris ):
         print("FULL!!!!")
 
@@ -63,7 +63,7 @@ def cercaScala(mano):
     if mano in Scale:
         print("SCALA!!!", mano)
     return
-        
+
 giocatori=int(input("quanti giocatori siete?"))
 carteDate=[]
 for i in range(giocatori):
@@ -80,8 +80,10 @@ print(carteDate)
 for i in range(giocatori):
     print("esamino carte del giocatore ", i+1, " che ha queste carte: ", carteDate[i])
     valori=estraiValori(carteDate[i])
-    cercaPokerCoppieTris(valori)
-    cercaColore(valori)
+    cercaPokerCoppieTrisFull(valori)
+    semi=estraiValori(carteDate[i])
+
+    cercaColore(semi)
     cercaScala(valori)
 
     # Test:
@@ -90,7 +92,3 @@ for i in range(giocatori):
     # cercaColore(["Q","Q","Q","Q","Q"])
     # cercaScala(["2","2","4","5","6"])
     # cercaScala(["A","2","3","4","5"])
-
-    
-
-        
